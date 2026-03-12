@@ -64,7 +64,6 @@ public class PromoPricing : IStrategia
    }
 }
 
-
 public class WholesalePricing : IStrategia
 {
 
@@ -113,7 +112,7 @@ public class DynamicPricing : IStrategia
    }
 }
 
-
+/*
 public class Contesto
 {
    private IStrategia _strategia;
@@ -136,3 +135,4 @@ public class Contesto
       
    }
 }
+*/
