@@ -131,7 +131,7 @@ public class Contesto
          return;
       }
 
-      double totale = _strategia.Pricing(prezzo);
+      decimal totale = _strategia.Pricing(prezzo);
       Console.WriteLine($"Totale: {totale}");
       
    }
