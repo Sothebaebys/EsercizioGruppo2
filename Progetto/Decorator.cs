@@ -1,4 +1,4 @@
-using ModShop.Products;
+using System.Collections.Generic;
 
 public abstract class ProductDecorator : IProduct
 {
@@ -11,11 +11,25 @@ public abstract class ProductDecorator : IProduct
 
     public abstract double GetPrice();
     public abstract string GetName();
+
+    public void Registra(IProductObserver observer)
+    {
+        _product.Registra(observer);
+    }
+    public void Rimuovi(IProductObserver observer)
+    {
+        _product.Rimuovi(observer);
+    }
+    public void Notifica(string messaggio)
+    {
+        _product.Notifica(messaggio);
+    }
+
 }
 
 public class StampaFronte : ProductDecorator
 {
-    public StampaFronte(IProduct product) : base(product){}
+    public StampaFronte(IProduct product) : base(product) { }
 
     public override double GetPrice()
     {
@@ -30,7 +44,7 @@ public class StampaFronte : ProductDecorator
 
 public class StampaRetro : ProductDecorator
 {
-    public StampaRetro(IProduct product) : base(product){}
+    public StampaRetro(IProduct product) : base(product) { }
 
     public override double GetPrice()
     {
@@ -45,7 +59,7 @@ public class StampaRetro : ProductDecorator
 
 public class ConfezioneRegalo : ProductDecorator
 {
-    public ConfezioneRegalo(IProduct product) : base(product){}
+    public ConfezioneRegalo(IProduct product) : base(product) { }
 
     public override double GetPrice()
     {
@@ -60,7 +74,7 @@ public class ConfezioneRegalo : ProductDecorator
 
 public class EstensioneGaranzia : ProductDecorator
 {
-    public EstensioneGaranzia(IProduct product) : base(product){}
+    public EstensioneGaranzia(IProduct product) : base(product) { }
 
     public override double GetPrice()
     {
@@ -75,7 +89,7 @@ public class EstensioneGaranzia : ProductDecorator
 
 public class Incisione : ProductDecorator
 {
-    public Incisione(IProduct product) : base(product){}
+    public Incisione(IProduct product) : base(product) { }
 
     public override double GetPrice()
     {
