@@ -1,0 +1,15 @@
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\bin\Debug\net10.0\Progetto.exe
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\bin\Debug\net10.0\Progetto.deps.json
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\bin\Debug\net10.0\Progetto.runtimeconfig.json
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\bin\Debug\net10.0\Progetto.dll
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\bin\Debug\net10.0\Progetto.pdb
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.AssemblyInfoInputs.cache
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.AssemblyInfo.cs
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.csproj.CoreCompileInputs.cache
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.sourcelink.json
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.dll
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\refint\Progetto.dll
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.pdb
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\Progetto.genruntimeconfig.cache
+C:\Users\Marco\Documents\GitHub\EsercizioGruppo2\Progetto\obj\Debug\net10.0\ref\Progetto.dll
