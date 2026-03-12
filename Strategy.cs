@@ -33,8 +33,8 @@ public class StandarndPricing : IStrategia
    public decimal Pricing(decimal prezzo)
    {
       //calcolo il prezzo ivato
-      decimal prezzo = prezzo *((iva / 100)+1);
-      return prezzo;
+      decimal prezzoTot = prezzo *((iva / 100)+1);
+      return prezzoTot;
    }
 }
 //Con soglia
@@ -53,23 +53,35 @@ public class PromoPricing : IStrategia
    public decimal Pricing(decimal prezzo)
    {
       //controlla se il prezzo ivato supera la soglia di sconto
-      decimal prezzo = prezzo *((iva / 100)+1);
+      decimal prezzoTot = prezzo *((iva / 100)+1);
       
-      if(prezzo >= sogliaSconto)
+      if(prezzoTot >= sogliaSconto)
       {
          //si applica uno sconto fisso
-         return prezzo - scontoApplicabile;
+         return prezzoTot - scontoApplicabile;
       }
-      return prezzo;
+      return prezzoTot;
    }
 }
 
 
 public class WholesalePricing : IStrategia
 {
+
+   public decimal iva;
+   public decimal scontoApplicabile;
+
+   public WholesalePricing(decimal iva, decimal scontoApplicabile)
+   {
+      this.iva = iva;
+      this.scontoApplicabile = scontoApplicabile;
+   }
    public decimal Pricing(decimal prezzo)
    {
-      return ;
+      //Calcolo tot ivato
+      decimal prezzoTot = prezzo *((iva / 100)+1);
+
+      return prezzoTot-scontoApplicabile;
    }
 }
 
@@ -90,14 +102,14 @@ public class DynamicPricing : IStrategia
    public decimal Pricing(decimal prezzo)
    {
       //calcolo il prezzo ivato
-      decimal prezzo = prezzo *((iva / 100)+1);
+      decimal prezzoTot = prezzo *((iva / 100)+1);
       if (isDynamic)
       {
-         return prezzo - scontoApplicabile;
+         return prezzoTot - scontoApplicabile;
       }
 
 
-      return prezzo;
+      return prezzoTot;
    }
 }
 
