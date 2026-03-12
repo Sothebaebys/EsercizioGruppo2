@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/a3b/Documents/GitHub/EsercizioGruppo2/Progetto/Progetto.csproj": {}
+    "C:\\Users\\Marco\\Documents\\GitHub\\EsercizioGruppo2\\Progetto\\Progetto.csproj": {}
   },
   "projects": {
-    "/Users/a3b/Documents/GitHub/EsercizioGruppo2/Progetto/Progetto.csproj": {
+    "C:\\Users\\Marco\\Documents\\GitHub\\EsercizioGruppo2\\Progetto\\Progetto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/a3b/Documents/GitHub/EsercizioGruppo2/Progetto/Progetto.csproj",
+        "projectUniqueName": "C:\\Users\\Marco\\Documents\\GitHub\\EsercizioGruppo2\\Progetto\\Progetto.csproj",
         "projectName": "Progetto",
-        "projectPath": "/Users/a3b/Documents/GitHub/EsercizioGruppo2/Progetto/Progetto.csproj",
-        "packagesPath": "/Users/a3b/.nuget/packages/",
-        "outputPath": "/Users/a3b/Documents/GitHub/EsercizioGruppo2/Progetto/obj/",
+        "projectPath": "C:\\Users\\Marco\\Documents\\GitHub\\EsercizioGruppo2\\Progetto\\Progetto.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marco\\Documents\\GitHub\\EsercizioGruppo2\\Progetto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/a3b/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
