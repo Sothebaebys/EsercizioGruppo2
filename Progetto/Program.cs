@@ -26,8 +26,9 @@ class Program
          Console.WriteLine("2. Aggiungi prodotto all'ordine");
          Console.WriteLine("3. Applica decoratore all'ultimo prodotto");
          Console.WriteLine("4. Mostra totale ordine (con IVA)");
-         Console.WriteLine("5. Modifica IVA");
-         Console.WriteLine("6. Esci");
+         Console.WriteLine("5. Rimuovi prodotto dall'ordine");
+         Console.WriteLine("6. Modifica IVA");
+         Console.WriteLine("7. Esci");
          Console.Write("Seleziona un'opzione: ");
 
          string scelta = Console.ReadLine();
@@ -55,12 +56,15 @@ class Program
                   break;
 
                case "5":
-                  ModificaIVA();
+                  RimuoviProdotto(ordine);
                   break;
 
                case "6":
+                  ModificaIVA();
+                  break;
+
+               case "7":
                   running = false;
-                  Console.WriteLine("Grazie per aver usato ModShop!");
                   break;
 
                default:
@@ -155,6 +159,47 @@ class Program
       Console.WriteLine($"Totale senza IVA: {totale}");
       Console.WriteLine($"Totale con IVA {AppContext.getInstance.iva}%: {totale * (1 + iva)}");
    }
+
+static void RimuoviProdotto(List<IProduct> ordine)
+{
+   if (ordine.Count == 0)
+   {
+      Console.WriteLine("L'ordine è vuoto.");
+      return;
+   }
+
+   Console.WriteLine("\nProdotti nell'ordine:");
+
+   for (int i = 0; i < ordine.Count; i++)
+   {
+      Console.WriteLine($"{i + 1}. {ordine[i].GetName()} - {ordine[i].GetPrice()}");
+   }
+
+   Console.Write("Seleziona il numero del prodotto da rimuovere: ");
+   string input = Console.ReadLine();
+
+   if (int.TryParse(input, out int scelta))
+   {
+      if (scelta > 0 && scelta <= ordine.Count)
+      {
+         IProduct prodotto = ordine[scelta - 1];
+
+         prodotto.Notifica("Prodotto rimosso dall'ordine");
+
+         ordine.RemoveAt(scelta - 1);
+
+         Console.WriteLine("Prodotto rimosso con successo.");
+      }
+      else
+      {
+         Console.WriteLine("Indice non valido.");
+      }
+   }
+   else
+   {
+      Console.WriteLine("Input non valido.");
+   }
+}
 
 static void ModificaIVA()
    {
