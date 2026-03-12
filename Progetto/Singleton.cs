@@ -80,6 +80,7 @@ public sealed class AppContext
          return _instance;
       }
    }
+   
    //Costruttore privato con valori default
    private AppContext()
    {
@@ -115,7 +116,31 @@ public sealed class AppContext
       }
    }
 
+   #region ContestoStrategia
+   //Parte che gestisce la strategia
+   private IStrategia _strategia;
 
+   public void SetStrategia (IStrategia strategia)
+   {
+      _strategia = strategia;
+   }
+
+   public void EseguiStrat (decimal prezzo)
+   {
+      if (_strategia == null)
+      {
+         Console.WriteLine($"Imposta la tipologia di pricing");
+         return;
+      }
+
+      decimal totale = _strategia.Pricing(prezzo);
+      Console.WriteLine($"Totale: {totale}");
+      
+      
+      
+   }
+   #endregion
+   
    //Logger / Eventbus
 
 }

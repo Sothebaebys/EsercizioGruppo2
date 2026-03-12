@@ -147,17 +147,22 @@ class Program
 
       double totale = 0;
       double iva = AppContext.getInstance.iva / 100;
+      double sconto = AppContext.getInstance.scontoBase;
 
-      Console.WriteLine("\nProdotti nell'ordine:");
-      foreach (var prod in ordine)
+      if (ordine.Count>10)
       {
-         double prezzo = prod.GetPrice();
-         Console.WriteLine($"{prod.GetName()} - Prezzo base {prezzo} - Prezzo con IVA {prezzo * (1 + iva)}");
-         totale += prezzo;
+         //Wholesale e poi return
       }
-
-      Console.WriteLine($"Totale senza IVA: {totale}");
-      Console.WriteLine($"Totale con IVA {AppContext.getInstance.iva}%: {totale * (1 + iva)}");
+      if (sconto>0)
+      {
+         //Prezzo scontato
+      }
+      else
+      {
+         //prezzo normale
+      }
+      //Console.WriteLine($"Totale senza IVA: {totale}");
+      //Console.WriteLine($"Totale con IVA {AppContext.getInstance.iva}%: {totale * (1 + iva)}");
    }
 
 static void RimuoviProdotto(List<IProduct> ordine)
@@ -200,6 +205,18 @@ static void RimuoviProdotto(List<IProduct> ordine)
       Console.WriteLine("Input non valido.");
    }
 }
+   public double CicloTotale(List<IProduct> ordine)
+      {
+         double totale = 0;
+         Console.WriteLine("\nProdotti nell'ordine:");
+         foreach (var prod in ordine)
+         {  
+            double prezzo = prod.GetPrice();
+            Console.WriteLine($"{prod.GetName()} - Prezzo base: {prezzo}");
+            totale += prezzo;
+         }
+         return totale;
+      }
 
 static void ModificaIVA()
    {
