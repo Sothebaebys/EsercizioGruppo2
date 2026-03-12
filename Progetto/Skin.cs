@@ -1,9 +1,24 @@
-namespace ModShop.Products
+public class Skin : IProduct
 {
-    public class Skin : IProduct
-    {
-        public string GetName() => "Game Skin";
+      //LISTA PER OBSERVER
+    private List<IProductObserver> lstObs = new();
 
-        public double GetPrice() => 5;
+    public void Registra(IProductObserver observer)
+    {
+        lstObs.Add(observer);
     }
+    public void Rimuovi(IProductObserver observer)
+    {
+        lstObs.Remove(observer);
+    }
+    public void Notifica(string messaggio)
+    {
+        foreach(var ob in lstObs)
+        {
+            ob.Aggiorna(this, messaggio);
+        }
+    }
+    public string GetName() => "Game Skin";
+
+    public double GetPrice() => 5;
 }
