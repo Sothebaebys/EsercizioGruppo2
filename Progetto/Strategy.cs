@@ -11,49 +11,49 @@ DynamicPricing.
 
 public interface IStrategia
 {
-   decimal Pricing(decimal prezzo);
+   double Pricing(double prezzo);
 
 }
 
 public class StandarndPricing : IStrategia
 {
    //Proprietà di classe
-   public decimal iva;
-   //public decimal sogliaSconto;
+   public double iva;
+   //public double sogliaSconto;
    
    //Costruttore pubblico,
    // nel momento in cui viene chiamato 
    // passare gli argomenti (iva e sconto) dal singleton
-   public StandarndPricing(decimal iva /*, decimal sogliaSconto*/)
+   public StandarndPricing(double iva /*, double sogliaSconto*/)
    {
       this.iva = iva;
       //this.sogliaSconto = sogliaSconto;
    }
    
-   public decimal Pricing(decimal prezzo)
+   public double Pricing(double prezzo)
    {
       //calcolo il prezzo ivato
-      decimal prezzoTot = prezzo *((iva / 100)+1);
+      double prezzoTot = prezzo *((iva / 100)+1);
       return prezzoTot;
    }
 }
 //Con soglia
 public class PromoPricing : IStrategia
 {
-   public decimal iva;
-   public decimal sogliaSconto;
-   public decimal scontoApplicabile;
+   public double iva;
+   public double sogliaSconto;
+   public double scontoApplicabile;
 
-   public PromoPricing (decimal iva, decimal sogliaSconto, decimal scontoApplicabile)
+   public PromoPricing (double iva, double sogliaSconto, double scontoApplicabile)
    {
       this.iva = iva;
       this.sogliaSconto = sogliaSconto;
       this.scontoApplicabile = scontoApplicabile;
    }
-   public decimal Pricing(decimal prezzo)
+   public double Pricing(double prezzo)
    {
       //controlla se il prezzo ivato supera la soglia di sconto
-      decimal prezzoTot = prezzo *((iva / 100)+1);
+      double prezzoTot = prezzo *((iva / 100)+1);
       
       if(prezzoTot >= sogliaSconto)
       {
@@ -67,18 +67,18 @@ public class PromoPricing : IStrategia
 public class WholesalePricing : IStrategia
 {
 
-   public decimal iva;
-   public decimal scontoApplicabile;
+   public double iva;
+   public double scontoApplicabile;
 
-   public WholesalePricing(decimal iva, decimal scontoApplicabile)
+   public WholesalePricing(double iva, double scontoApplicabile)
    {
       this.iva = iva;
       this.scontoApplicabile = scontoApplicabile;
    }
-   public decimal Pricing(decimal prezzo)
+   public double Pricing(double prezzo)
    {
       //Calcolo tot ivato
-      decimal prezzoTot = prezzo *((iva / 100)+1);
+      double prezzoTot = prezzo *((iva / 100)+1);
 
       return prezzoTot-scontoApplicabile;
    }
@@ -87,21 +87,21 @@ public class WholesalePricing : IStrategia
 //sconto percentuale
 public class DynamicPricing : IStrategia
 {
-   public decimal iva;
-   public decimal scontoApplicabile;
+   public double iva;
+   public double scontoApplicabile;
    public bool isDynamic= false;
 
-   public DynamicPricing(decimal iva,decimal scontoApplicabile, bool isApplicabile)
+   public DynamicPricing(double iva,double scontoApplicabile, bool isApplicabile)
    {
       this.iva = iva;
       this.scontoApplicabile = scontoApplicabile;
       this.isDynamic = isApplicabile;
    }
 
-   public decimal Pricing(decimal prezzo)
+   public double Pricing(double prezzo)
    {
       //calcolo il prezzo ivato
-      decimal prezzoTot = prezzo *((iva / 100)+1);
+      double prezzoTot = prezzo *((iva / 100)+1);
       if (isDynamic)
       {
          return prezzoTot - scontoApplicabile;
@@ -122,7 +122,7 @@ public class Contesto
       _strategia = strategia;
    }
 
-   public void EseguiStrat (decimal prezzo)
+   public void EseguiStrat (double prezzo)
    {
       if (_strategia == null)
       {

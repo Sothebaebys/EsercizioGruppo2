@@ -125,7 +125,7 @@ public sealed class AppContext
       _strategia = strategia;
    }
 
-   public void EseguiStrat (decimal prezzo)
+   public void EseguiStrat (double prezzo)
    {
       if (_strategia == null)
       {
@@ -133,7 +133,7 @@ public sealed class AppContext
          return;
       }
 
-      decimal totale = _strategia.Pricing(prezzo);
+      double totale = _strategia.Pricing(prezzo);
       Console.WriteLine($"Totale: {totale}");
       
       

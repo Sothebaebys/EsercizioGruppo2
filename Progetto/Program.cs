@@ -139,27 +139,45 @@ class Program
 
    static void MostraTotale(List<IProduct> ordine)
    {
+      
+
       if (ordine.Count == 0)
       {
          Console.WriteLine("Ordine vuoto.");
          return;
       }
 
+      var contesto = AppContext.getInstance;
       double totale = 0;
       double iva = AppContext.getInstance.iva / 100;
       double sconto = AppContext.getInstance.scontoBase;
 
       if (ordine.Count>10)
       {
-         //Wholesale e poi return
+         contesto.SetStrategia(new WholesalePricing(iva, sconto*0.20d));
+         Console.Write("Risultato finale con sconto ingrosso: ");
+         totale = CicloTotale(ordine);
+         contesto.EseguiStrat(totale);
+         return; 
       }
       if (sconto>0)
       {
+         //if ()
+         // 50 tempporaneo
+         contesto.SetStrategia(new PromoPricing(iva,50,sconto));
+         Console.Write("Risultato finale: ");
+         totale = CicloTotale(ordine);
+         contesto.EseguiStrat(totale);
+         return;
          //Prezzo scontato
       }
       else
       {
-         //prezzo normale
+         contesto.SetStrategia(new StandarndPricing(iva));
+         Console.Write("Risultato finale: ");
+         totale = CicloTotale(ordine);
+         contesto.EseguiStrat(totale);//prezzo normale
+         return;
       }
       //Console.WriteLine($"Totale senza IVA: {totale}");
       //Console.WriteLine($"Totale con IVA {AppContext.getInstance.iva}%: {totale * (1 + iva)}");
@@ -205,7 +223,8 @@ static void RimuoviProdotto(List<IProduct> ordine)
       Console.WriteLine("Input non valido.");
    }
 }
-   public double CicloTotale(List<IProduct> ordine)
+
+public static double CicloTotale(List<IProduct> ordine)
       {
          double totale = 0;
          Console.WriteLine("\nProdotti nell'ordine:");
