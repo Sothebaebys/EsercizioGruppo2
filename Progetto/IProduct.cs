@@ -1,6 +1,6 @@
 namespace ModShop.Products
 {
-    public interface Product
+    public interface IProduct
     {
         string GetName();
         double GetPrice();

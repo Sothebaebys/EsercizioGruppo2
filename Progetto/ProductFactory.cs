@@ -2,7 +2,7 @@ namespace ModShop.Products
 {
     public static class ProductFactory
     {
-        public static Product CreateProduct(string code)
+        public static IProduct CreateProduct(string code)
         {
             switch (code)
             {

@@ -1,6 +1,6 @@
 namespace ModShop.Products
 {
-    public class TShirt : Product
+    public class TShirt : IProduct
     {
         public string GetName() => "T-Shirt";
 

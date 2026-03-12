@@ -1,6 +1,6 @@
 namespace ModShop.Products
 {
-    public class Skin : Product
+    public class Skin : IProduct
     {
         public string GetName() => "Game Skin";
 

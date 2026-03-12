@@ -1,6 +1,6 @@
 namespace ModShop.Products
 {
-    public class Mug : Product
+    public class Mug : IProduct
     {
         public string GetName() => "Mug";
 
